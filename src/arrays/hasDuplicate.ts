@@ -39,7 +39,7 @@ export const containsDuplicateHeapSort = (nums: number[]) => {
 	return hasDuplicate(nums);
 };
 
-export const hasDuplicateBest = (nums: number[]) => {
+export const hasDuplicate = (nums: number[]) => {
 	for (let curr = 0; curr < nums.length - 1; curr++) {
 		/* Time O(N) */
 		const next = curr + 1;
@@ -51,19 +51,6 @@ export const hasDuplicateBest = (nums: number[]) => {
 	return false;
 };
 
-/**
- * Hash Set
- * Time O(N) | Space O(N)
- * https://leetcode.com/problems/contains-duplicate/
- * @param {number[]} nums
- * @return {boolean}
- */
- export const containsDuplicateBest = (nums: number[]) => {
-	const numsSet = new Set(nums); /* Time O(N) | Space O(N) */
-	const isEqual = numsSet.size === nums.length;
-
-	return !isEqual;
-};
 
 /**
  * Hash Set - Early Exit
@@ -71,17 +58,39 @@ export const hasDuplicateBest = (nums: number[]) => {
  * https://leetcode.com/problems/contains-duplicate/
  * @param {number[]} nums
  * @return {boolean}
- */
+*/
 export const containsDuplicateEarly = (nums: number[], numsSet = new Set()) => {
 	for (const num of nums) {
 		/* Time O(N) */
 		if (numsSet.has(num)) return true;
-
+		
 		numsSet.add(num); /* Space O(N) */
 	}
-
+	
 	return false;
 };
+
+
+/**
+ * Best solution!
+ * Hash Set
+ * Time O(N) | Space O(N)
+ * https://leetcode.com/problems/contains-duplicate/
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+ export const containsDuplicateBest = (nums: number[]) => {
+	const s = new Set(nums); /* Time O(N) | Space O(N) */
+	const isEqual = s.size !== nums.length;
+
+	return isEqual;
+};
+
+/**
+ * By using a Hash Set, we can check if the array contains a duplicate because a Set can only have unique values. 
+ * Once we store all the values into the set, we simply have to check if it is the same length as the original array.
+ * Because if it is not the same size as the array, it is because there was a duplicate and was rejected when inserting into the array!!
+ */
 
 let vals = [4,5,12,5,6,2,613,4,463,626,16,4]
 
