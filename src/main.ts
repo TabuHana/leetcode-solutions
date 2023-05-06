@@ -1,5 +1,6 @@
 import './style.css'
 import './arrays/hasDuplicate.ts'
+import './arrays/validAnagram.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
