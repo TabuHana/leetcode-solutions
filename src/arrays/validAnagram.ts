@@ -59,7 +59,8 @@ const subFeq = (t: string, map: Map<string, number>) => {
 	// count through each item and remove
 	for (const char of t) {
 		if (!map.has(char)) continue
-		// ts ignore
+		// @ts-ignore
+		// bug that says that map.get(char) could be undefined. its not. 
     const count = map.get(char) - 1;
     map.set(char, count);
 	}
