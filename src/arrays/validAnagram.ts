@@ -56,9 +56,10 @@ const addFeq = (s: string, map: Map<string, number>) => {
 };
 
 const subFeq = (t: string, map: Map<string, number>) => {
-	//count through each item and remove
+	// count through each item and remove
 	for (const char of t) {
 		if (!map.has(char)) continue
+		// ts ignore
     const count = map.get(char) - 1;
     map.set(char, count);
 	}
