@@ -7,6 +7,7 @@ An Anagram is a word or phrase formed by rearranging the letters of a different 
 */
 
 /**
+ * This solution is faster, if the array is smaller
  * Sort - HeapSort Space O(1) | QuickSort Space O(log(M))
  * Hash Map - Adjacency List
  * Time O(N * (K * log(K))) | Space O(N * K)
@@ -40,13 +41,14 @@ const reorderB = (word: string): string => {
 };
 
 /**
+ * This is the best case solution if you are using it against a bigger array
  * Hash Map
  * Time O(N * K) | Space O(N * K)
  * https://leetcode.com/problems/group-anagrams/
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagramsBest = (strs: string[], map = new Map<string, string[]>()) => {
+var groupAnagramsTwo = (strs: string[], map = new Map<string, string[]>()) => {
 	if (!strs.length) return [];
 
 	groupWordsBest(strs, map); /* Time O(N * K) | Space O(N * K) */
@@ -90,4 +92,4 @@ const buildHash = (frequency: number[]) => frequency.toString();
 
 const strs = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
 
-console.log(groupAnagramsBest(strs))
+console.log(groupAnagramsTwo(strs))
