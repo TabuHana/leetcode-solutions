@@ -67,6 +67,8 @@ const subFeq = (t: string, map: Map<string, number>) => {
 };
 
 const checkFeq = (map: Map<string, number>): boolean => {
+	// ignoring char because it is never used
+	// @ts-ignore
 	for (const [char, count] of map) {
 		const isEmpty = count === 0;
 		if (!isEmpty) return false;
