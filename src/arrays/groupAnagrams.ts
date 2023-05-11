@@ -57,10 +57,10 @@ var groupAnagramsBest = (strs: string[], map = new Map<string, string[]>()) => {
 var groupWordsBest = (strs: string[], map: Map<string, string[]>) => {
 	for (const i of strs) /* Time O(N) */ {
 		const hash = getHash(i); /* Time O(K) | Space O(1) */
-		const values = map.get(hash) || []; // We are basing it off the string converted from the freq array
+		const originals = map.get(hash) || []; // We are basing it off the string converted from the freq array
 
-		values.push(i); /*           | Space O(N) */
-		map.set(hash, values); /*           | Space O(N * K) */
+		originals.push(i); /*           | Space O(N) */
+		map.set(hash, originals); /*           | Space O(N * K) */
 		// our map looks something like this ["0,0,1,0,2,0,0,1...,0,0,0": [["word, word, word"],["example, example"]]]
 	}
 };
@@ -68,6 +68,7 @@ var groupWordsBest = (strs: string[], map: Map<string, string[]>) => {
 const getHash = (strs: string) => {
 	const frequency: number[] = new Array(26).fill(0);
 
+    // loop through the characters in the string
 	for (const char of strs) /* Time O(K) */ {
 		const charCode = getCode(char); /* Time O(1) | Space (1) */
 
