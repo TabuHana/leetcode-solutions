@@ -77,6 +77,15 @@ const checkFeq = (map: Map<string, number>): boolean => {
 	return true;
 };
 
+/**
+ * First we check if the 2 strings are the same length, if they arent we immediately return
+ * Next we pass our first string and hash map into our frequency function
+ * This function adds each character to the Hash map as keys and their freq. as values
+ * Next we pass our second string and Hash map into our subtract freq counter
+ * This function removes count values from our hash map if it contains the character
+ * Finally we check if the hash map is "empty", meaning all the keys have a value of 0, if true it is anagram!
+ */
+
 const s = 'anagram';
 const t = 'nagaram';
 

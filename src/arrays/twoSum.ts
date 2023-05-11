@@ -85,6 +85,15 @@ var twoSum = (nums: number[], target: number, map = new Map<number, number>()) =
 	return [-1, -1];
 };
 
+/**
+ * First we loop through the nums array
+ * we create 2 vars, the number & the target
+ * we call .get to get the index of the targeted sum in the map, if not in returns undefined 
+ * next we check if the value is in the map, if it is then we return the index & our sum's index
+ * if the check returns false, we insert the number as key and its index as value into the map
+ * finally if we reach the end of the number[] and dont find anything, we return [-1, -1]
+ */
+
 const numbers = [199, 6, 16, 72, 19, 92, 5, -2, 41, 53, 67];
 const target = 11;
 
