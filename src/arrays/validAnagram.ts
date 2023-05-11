@@ -18,14 +18,16 @@ var isAnagramOne = (s: string, t: string) => {
 	const isEqual = s.length === t.length;
 	if (!isEqual) return false;
 
-	return reorder(s) === reorder(t); /* Time O(N * logN) | Space O(N) */
+	return reorderA(s) === reorderA(t); /* Time O(N * logN) | Space O(N) */
 };
 
-const reorder = (str: string) =>
+const reorderA = (str: string) =>
 	str
 		.split('') /* Time O(N)          | Space O(N) */
 		.sort((a, b) => a.localeCompare(b)) /* Time O(N * log(N)) | Space O(1 || log(N)) */
 		.join(''); /* Time O(N)          | Space O(N) */
+
+		// for the sort, you dont need to pass in a call-back, but its nice to do to be sure what you are getting
 
 /**
  * Hash Map - Frequency Counter

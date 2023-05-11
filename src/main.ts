@@ -2,6 +2,7 @@ import './style.css'
 import './arrays/hasDuplicate.ts'
 import './arrays/validAnagram.ts'
 import './arrays/twoSum.ts'
+import './arrays/groupAnagrams.ts'
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
